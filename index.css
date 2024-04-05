@@ -28,12 +28,32 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
-
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
   color: #fff;  /* White text for headings */
 }
-
-p {
-  font-size:
+.typed-cursor{
+  display:none;
+}
+input[type = 'radio']{
+  margin-bottom:16px;
+}
+span{
+  margin-left:8px;
+}
+#submit_btn{
+  background-color:rgb(64,133,38);
+  color:white;
+  width:320px;
+  border-radius:80px;
+  display:block;
+  margin:auto;
+  height:48px;
+}
+#the_question{
+  margin-bottom:40px;
+}
+#cont{
+  min-height:240px;
+}

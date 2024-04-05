@@ -12,8 +12,8 @@ let questions = [
   {
     "questions": "True or False: The \"golang\" command is used to compile Go programs.",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
     "answer": "False"
   },
@@ -70,8 +70,8 @@ let questions = [
   {
     "questions": "Multiple Choice: Android, the world's most popular mobile operating system, is based on the open-source Linux kernel. True or False?",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
     "answer": "True"
   },
@@ -108,8 +108,8 @@ let questions = [
   {
     "questions": "True or False: Open-source software is inherently more secure than closed-source software because the code is publicly available.",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
     "answer": "False"
   },
@@ -136,8 +136,8 @@ let questions = [
   {
     "questions": "True or False: Open-source software means anyone can see and even change the code that makes it work.  (True)",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
     "answer": "True"
   },
@@ -151,5 +151,21 @@ let questions = [
     },
     "answer": "c"
   }
-
 ]
+const cont = document.getElementById("cont");
+var sub_but = document.getElementsByTagName("button")[0];
+function click_eve(){
+  let rand_in = Math.floor(Math.random() *questions.length);
+let typ = new Typed("#cont",{
+    strings:[`<p id ="the_question"><b>${questions[rand_in].questions}</b></p>
+    <input type = "radio" name = "options"><span>${questions[rand_in].options.a}<span/></input>
+    <br>
+    <input type = "radio" name = "options"><span>${questions[rand_in].options.b}<span/></input>
+    <br>
+    ${questions[rand_in].options.c===undefined? ``:`<input type = radio name = "options"><span>${questions[rand_in].options.c}<span/></input>`}
+    <br>
+    ${questions[rand_in].options.d===undefined? ``:`<input type = radio name = "options"><span>${questions[rand_in].options.d}<span/></input>`}`],
+    typeSpeed:10})
+}
+sub_but.addEventListener("click",click_eve);
+click_eve();
