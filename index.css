@@ -1,10 +1,9 @@
-
 body {
   font-family: sans-serif;
   margin: 0;
   display: flex;  /* Make body a flex container */
   flex-direction: column;  /* Stack elements vertically */
-  justify-content: center;  /* Align vertically in the center */
+  /* justify-content: center;  Align vertically in the center */
   align-items: center;  /* Align horizontally in the center */
   min-height: 100vh;
   background-color: #212529;  /* Dark gray background */
@@ -18,22 +17,55 @@ body {
   padding: 20px;
   border-radius: 5px;
   background-color: #29313b;  /* Slightly darker gray background for the content area */
-  position:absolute;
-  right:27vw;
-  top:0vw;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* Subtler shadow effect */
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
+  display:flex;
+  flex-direction:row;
 }
-
+.header img{
+  margin:0px;
+}
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
   color: #fff;  /* White text for headings */
 }
-
-p {
-  font-size:
+.typed-cursor{
+  display:none;
+}
+input[type = 'radio']{
+  margin-bottom:16px;
+}
+span{
+  margin-left:8px;
+}
+#submit_btn{
+  background-color:rgb(64,133,38);
+  color:white;
+  width:320px;
+  border-radius:80px;
+  display:block;
+  margin:auto;
+  height:48px;
+}
+#the_question{
+  margin-bottom:40px;
+  font-size:20px;
+}
+#cont{
+  min-height:240px;
+}
+#score_div{
+  font-size:30px; 
+  border:4px solid white; 
+  padding-left: 32px; 
+  padding-right:32px; 
+  padding-bottom:8px;
+  text-align:center; 
+  margin:48px; 
+  border-radius:10px;
+}

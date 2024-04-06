@@ -12,10 +12,10 @@ let questions = [
   {
     "questions": "True or False: The \"golang\" command is used to compile Go programs.",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
-    "answer": "False"
+    "answer": "b"
   },
   {
     "questions": "Multiple Choice: A popular Linux distribution known for its user-friendliness and focus on beginners is:",
@@ -68,12 +68,12 @@ let questions = [
     "answer": "d"
   },
   {
-    "questions": "Multiple Choice: Android, the world's most popular mobile operating system, is based on the open-source Linux kernel. True or False?",
+    "questions": "True or False : Android, the world's most popular mobile operating system, is based on the open-source Linux kernel. True or False?",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
-    "answer": "True"
+    "answer": "a"
   },
   {
     "questions": "Multiple Choice: Git, a popular version control system, is most known for allowing developers to:",
@@ -108,10 +108,10 @@ let questions = [
   {
     "questions": "True or False: Open-source software is inherently more secure than closed-source software because the code is publicly available.",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
-    "answer": "False"
+    "answer": "b"
   },
   {
     "questions": "Multiple Choice: Which open-source software recently was targeted and almost had exposed a backdoor to millions of devices using its system?",
@@ -136,10 +136,10 @@ let questions = [
   {
     "questions": "True or False: Open-source software means anyone can see and even change the code that makes it work.  (True)",
     "options": {
-      "True": True,
-      "False": False
+      "a": true,
+      "b": false
     },
-    "answer": "True"
+    "answer": "a"
   },
   {
     "questions": "Multiple Choice:  Which of these is NOT typically a benefit of using open-source software?",
@@ -151,5 +151,37 @@ let questions = [
     },
     "answer": "c"
   }
-
 ]
+let rand_in_arr
+const cont = document.getElementById("cont");
+var sub_but = document.getElementsByTagName("button")[0];
+let rand_in =-1;
+let sc =0;
+let no_answered = 0;
+function click_eve(){
+  let ops = document.getElementsByTagName("input");
+  for(i=0;i<ops.length;i++)
+  {
+    if(ops[i].checked)
+    {
+      if(ops[i].value === questions[rand_in]["answer"])
+      {
+        document.getElementById("no_corr").innerText = ++sc;
+      }
+    }
+  }
+  rand_in = Math.floor(Math.random() *questions.length);
+  let typ = new Typed("#cont",{
+    strings:[`<p id ="the_question"><b>Q) ${questions[rand_in].questions}</b></p>
+    <input type = "radio" name = "options" value = "a"><span>${questions[rand_in].options.a}<span/></input>
+    <br>
+    <input type = "radio" name = "options" value="b"><span>${questions[rand_in].options.b}<span/></input>
+    <br>
+    ${questions[rand_in].options.c===undefined? ``:`<input type = radio name = "options" value = "c"><span>${questions[rand_in].options.c}<span/></input>`}
+    <br>
+    ${questions[rand_in].options.d===undefined? ``:`<input type = radio name = "options" value = "d"><span>${questions[rand_in].options.d}<span/></input>`}`],
+    typeSpeed:10})
+    document.getElementById("no_answered").innerText = no_answered++;
+}
+sub_but.addEventListener("click",click_eve);
+click_eve();
