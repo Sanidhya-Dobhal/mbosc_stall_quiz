@@ -1,10 +1,9 @@
-
 body {
   font-family: sans-serif;
   margin: 0;
   display: flex;  /* Make body a flex container */
   flex-direction: column;  /* Stack elements vertically */
-  justify-content: center;  /* Align vertically in the center */
+  /* justify-content: center;  Align vertically in the center */
   align-items: center;  /* Align horizontally in the center */
   min-height: 100vh;
   background-color: #212529;  /* Dark gray background */
@@ -18,9 +17,6 @@ body {
   padding: 20px;
   border-radius: 5px;
   background-color: #29313b;  /* Slightly darker gray background for the content area */
-  position:absolute;
-  right:27vw;
-  top:0vw;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* Subtler shadow effect */
 }
 
@@ -58,7 +54,18 @@ span{
 }
 #the_question{
   margin-bottom:40px;
+  font-size:20px;
 }
 #cont{
   min-height:240px;
+}
+#score_div{
+  font-size:30px; 
+  border:4px solid white; 
+  padding-left: 32px; 
+  padding-right:32px; 
+  padding-bottom:8px;
+  text-align:center; 
+  margin:48px; 
+  border-radius:10px;
 }

@@ -68,7 +68,7 @@ let questions = [
     "answer": "d"
   },
   {
-    "questions": "Multiple Choice: Android, the world's most popular mobile operating system, is based on the open-source Linux kernel. True or False?",
+    "questions": "True or False : Android, the world's most popular mobile operating system, is based on the open-source Linux kernel. True or False?",
     "options": {
       "a": true,
       "b": false
