@@ -152,6 +152,7 @@ let questions = [
     "answer": "c"
   }
 ]
+let rand_in_arr
 const cont = document.getElementById("cont");
 var sub_but = document.getElementsByTagName("button")[0];
 let rand_in =-1;
@@ -171,7 +172,7 @@ function click_eve(){
   }
   rand_in = Math.floor(Math.random() *questions.length);
   let typ = new Typed("#cont",{
-    strings:[`<p id ="the_question"><b>${questions[rand_in].questions}</b></p>
+    strings:[`<p id ="the_question"><b>Q) ${questions[rand_in].questions}</b></p>
     <input type = "radio" name = "options" value = "a"><span>${questions[rand_in].options.a}<span/></input>
     <br>
     <input type = "radio" name = "options" value="b"><span>${questions[rand_in].options.b}<span/></input>
