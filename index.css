@@ -6,17 +6,17 @@ body {
   /* justify-content: center;  Align vertically in the center */
   align-items: center;  /* Align horizontally in the center */
   min-height: 100vh;
-  background-color: #212529;  /* Dark gray background */
   color: #fff;  /* White text for main content */
+  background-image:url("Images/Background_img.jpg");
+  background-size:cover;
+  background-position:center;
 }
-
-
 .container {
   width: 80%;
   max-width: 600px;
   padding: 20px;
   border-radius: 5px;
-  background-color: #29313b;  /* Slightly darker gray background for the content area */
+  background-color: #333333;  /* Slightly darker gray background for the content area */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* Subtler shadow effect */
 }
 
@@ -55,9 +55,15 @@ span{
 #the_question{
   margin-bottom:40px;
   font-size:20px;
+  margin-left:2px;
 }
 #cont{
   min-height:240px;
+  max-width:1000px;
+}
+
+#options_div{
+  margin-top:32px;
 }
 #score_div{
   font-size:30px; 
@@ -68,4 +74,47 @@ span{
   text-align:center; 
   margin:48px; 
   border-radius:10px;
+}
+#credits{
+  text-align:right;
+  color:rgba(154, 154, 154,0.8);
+  margin:8px auto;
+}
+#attri{
+  text-align:right; 
+  display:block; 
+  color:rgba(94, 159, 156,0.5);
+  margin:0px;
+}
+.ani_for_sub_but{
+  animation-name:font_sz_ani;
+  animation-duration:1s;
+  animation-timing-function:linear;
+  font-size:24px;
+}
+main{
+  min-height:66vh;
+}
+@keyframes font_sz_ani{
+0%{
+  font-size:16px;
+}
+80%{
+  font-size:28px;
+}
+100%{
+  font-size:24px;
+}
+}
+@media screen and (max-width:404px)
+{
+  #from_MBOSC{
+    display:none;
+  }
+}
+@media screen and (max-width:330px)
+{
+  #credits{
+    display:none;
+  }
 }

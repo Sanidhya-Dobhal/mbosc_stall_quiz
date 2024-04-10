@@ -1,1 +1,2 @@
 learned typed.js in a little more depth, even used a ternary op inside it 
+also used onBegin and onComplete properties of Typed object

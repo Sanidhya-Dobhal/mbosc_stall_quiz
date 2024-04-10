@@ -19,7 +19,7 @@ let questions = [
   },
   {
     "questions": "Multiple Choice: A popular Linux distribution known for its user-friendliness and focus on beginners is:",
-    "options": {
+    "options": { 
       "a": "Arch Linux",
       "b": "Ubuntu",
       "c": "Gentoo",
@@ -134,7 +134,7 @@ let questions = [
     "answer": "a"
   },
   {
-    "questions": "True or False: Open-source software means anyone can see and even change the code that makes it work.  (True)",
+    "questions": "True or False: Open-source software means anyone can see and even change the code that makes it work.",
     "options": {
       "a": true,
       "b": false
@@ -152,36 +152,74 @@ let questions = [
     "answer": "c"
   }
 ]
-let rand_in_arr
+
+let start =0;
 const cont = document.getElementById("cont");
 var sub_but = document.getElementsByTagName("button")[0];
-let rand_in =-1;
-let sc =0;
+let rand_in =10000;//We set this value of rand_in as we do not want the questions to be removed when the click_eve is called for the first time and this solves the problem upto 10000 questions without needing an additional if-else block to check if the function is being called for the first time which is inefficient asa that condition would be checked for all the questions. 
+let score =0;
 let no_answered = 0;
 function click_eve(){
   let ops = document.getElementsByTagName("input");
   for(i=0;i<ops.length;i++)
-  {
     if(ops[i].checked)
-    {
       if(ops[i].value === questions[rand_in]["answer"])
-      {
-        document.getElementById("no_corr").innerText = ++sc;
-      }
-    }
-  }
+        document.getElementById("no_corr").innerText = ++score;
+    questions.splice(rand_in,1);
   rand_in = Math.floor(Math.random() *questions.length);
-  let typ = new Typed("#cont",{
-    strings:[`<p id ="the_question"><b>Q) ${questions[rand_in].questions}</b></p>
+  let typ;
+  if(questions.length>0){
+  typ = new Typed("#cont2",{
+    strings:[`<span id ="the_question"><b>${questions[rand_in].questions}</b></span>
+    <div id ="options_div">
+    <div>
     <input type = "radio" name = "options" value = "a"><span>${questions[rand_in].options.a}<span/></input>
-    <br>
+    </div>
+    <div>
     <input type = "radio" name = "options" value="b"><span>${questions[rand_in].options.b}<span/></input>
-    <br>
+    </div>
+    <div>
     ${questions[rand_in].options.c===undefined? ``:`<input type = radio name = "options" value = "c"><span>${questions[rand_in].options.c}<span/></input>`}
-    <br>
-    ${questions[rand_in].options.d===undefined? ``:`<input type = radio name = "options" value = "d"><span>${questions[rand_in].options.d}<span/></input>`}`],
-    typeSpeed:10})
-    document.getElementById("no_answered").innerText = no_answered++;
+    </div>
+    <div>
+    ${questions[rand_in].options.d===undefined? ``:`<input type = radio name = "options" value = "d"><span>${questions[rand_in].options.d}<span/></input>`}
+    </div>
+    </div>`],
+    typeSpeed:10,
+  onBegin:()=>{
+    document.getElementById("submit_btn").removeEventListener("click",click_eve);
+  },
+  onComplete:()=>{
+    document.getElementById("submit_btn").addEventListener("click",click_eve);
+  }})
+}
+else{
+  typ = new Typed("#cont",{
+    strings:[``],
+    typeSpeed:0,
+    onComplete:function(){
+      document.getElementById("cont").style.display = "flex";
+      document.getElementById("cont").style.flexDirection ="column";
+      document.getElementById("cont").style.justifyContent ="space-evenly"
+      document.getElementById("cont").style.textAlign = "center";
+      typ = new Typed("#cont",{
+        strings:[`<b><span style = "color:rgb(64,233,38);">Congratulations!</span> You have attempted all questions.</b>
+        <p>Click below to start a new game</p>
+        `],
+        typeSpeed:10,
+        onComplete:function(){
+          let sub_btn = document.getElementById("submit_btn");
+          sub_btn.classList.add("ani_for_sub_but");
+          sub_btn.innerText = "New Game";
+          sub_btn.addEventListener("click",()=>{
+          location.reload();
+    });
+        }
+        });
+      }
+    })
+  }
+  document.getElementById("no_answered").innerText = no_answered++;
 }
 sub_but.addEventListener("click",click_eve);
 click_eve();
